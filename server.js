@@ -30,8 +30,7 @@ app.use(function(req,res,next){
 });
 app.engine('hbs', exphbs.engine({ 
 extname: '.hbs',
-defaultLayout: 'main',
-layoutsDir: path.join(__dirname, 'views/layouts'),
+defaultLayout: path.join(__dirname, 'views', 'layouts', 'main'),
 helpers:  {
   navLink: function (url, options) {
       return (
