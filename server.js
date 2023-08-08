@@ -28,7 +28,11 @@ app.use(function(req,res,next){
   app.locals.activeRoute = "/" + (isNaN(route.split('/')[1]) ? route.replace(/\/(?!.*)/, "") : route.replace(/\/(.*)/, ""));    
   next();
 });
-app.engine('hbs', exphbs.engine({ extname: '.hbs', defaultLayout: 'main', helpers: {
+app.engine('hbs', exphbs.engine({ 
+extname: '.hbs',
+defaultLayout: 'main',
+layoutsDir: path.join(__dirname, 'views/layouts'),
+helpers:  {
   navLink: function (url, options) {
       return (
           '<li' +
